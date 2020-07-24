@@ -1,6 +1,15 @@
-// These might be inefficient snippets but it gets the job done with the basics
+// These might be inefficient but get the job done with the basics
 
-// Count of a sequence given a sequence
+// Get nth vaue of Lists/Sequences without nth
+
+(fn foo [m n]
+  (if (> n 0)
+  (foo (rest m) (- n 1))
+  (first m)
+  )
+)
+
+// Count of a sequence given a sequence without count
 
 #((partial (fn foo [mycount m]
   (if (not= (rest m) '())
@@ -8,4 +17,13 @@
   mycount
 )
 ) 1) %)
+
+
+// Return sum of sequence
+
+(fn [s] (reduce #(+ %1 %2) s))
+
+// Return Odd numbers
+
+(fn [s] (filter #(= (rem % 2) 1) s))
 
