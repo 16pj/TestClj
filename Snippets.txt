@@ -1,0 +1,11 @@
+// These might be inefficient snippets but it gets the job done with the basics
+
+// Count of a sequence given a sequence
+
+#((partial (fn foo [mycount m]
+  (if (not= (rest m) '())
+  (foo (+ mycount 1) (rest m))
+  mycount
+)
+) 1) %)
+
