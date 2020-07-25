@@ -27,3 +27,15 @@
 
 (fn [s] (filter #(= (rem % 2) 1) s))
 
+
+// Return Max value of variable input of values
+
+(fn [& a] (reduce #(if(> %1 %2) %1 %2) a))
+
+// Return only Capital parts from a given string
+
+#(apply str (re-seq #"[A-Z]" %))
+
+// Duplicate each element of an input sequence
+
+(fn [s] (reduce #(conj %1 %2 %2) [] s))
