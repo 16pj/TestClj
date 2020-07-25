@@ -39,3 +39,10 @@
 // Duplicate each element of an input sequence
 
 (fn [s] (reduce #(conj %1 %2 %2) [] s))
+
+
+// Remove duplicates in a sequence or string
+
+(fn [s]
+(reduce #(if (not= (last %1) %2) (conj %1 %2) %1) [] s)
+)
