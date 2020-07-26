@@ -46,3 +46,29 @@
 (fn [s]
 (reduce #(if (not= (last %1) %2) (conj %1 %2) %1) [] s)
 )
+
+
+// Implementing range function but lazily
+
+(fn foo [n omega] 
+  (lazy-seq 
+   (if (< n omega)
+    (cons n (foo (inc n) omega))  
+)))
+
+// Return factorial of a value
+
+(fn foo [n]  
+   (if (> n 1)
+    (* n (foo (dec n)))
+    n
+))
+
+
+// Function which takes two sequences and returns the first item from each, then the second item from each, then the third, etc.
+
+(fn foo [s1 s2]
+(if (and (> (count s1) 0) (> (count s2) 0))
+( cons (first s1) (cons (first s2)  (foo (rest s1) (rest s2)))
+ ))
+)
