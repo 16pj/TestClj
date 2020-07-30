@@ -81,3 +81,9 @@
 s
 )
 )
+
+// Split a sequence into two with first part containing n number of elements
+
+(fn foo [n s]
+(let [[a & b] (partition-all n s)] [a (apply concat b)])
+)
