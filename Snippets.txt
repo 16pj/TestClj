@@ -87,3 +87,12 @@ s
 (fn foo [n s]
 (let [[a & b] (partition-all n s)] [a (apply concat b)])
 )
+
+
+// Take two sequences and create a map from them
+
+(fn foo [s1 s2]
+(if (and (> (count s1) 0) (> (count s2) 0))
+(conj (hash-map (first s1) (first s2))  (foo (rest s1) (rest s2)))
+)
+)
