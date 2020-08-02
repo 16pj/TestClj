@@ -96,3 +96,12 @@ s
 (conj (hash-map (first s1) (first s2))  (foo (rest s1) (rest s2)))
 )
 )
+
+// GCD of two numbers 
+
+#(reduce max (
+              (fn [a b]
+				(for [i (range (max a b))
+              		  :when (and (not= i 0) (= (mod a i)0) (= (mod b i) 0))
+              		 ]
+					i)) %1 %2))
