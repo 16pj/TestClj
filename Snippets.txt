@@ -105,3 +105,9 @@ s
               		  :when (and (not= i 0) (= (mod a i)0) (= (mod b i) 0))
               		 ]
 					i)) %1 %2))
+
+// Take N and return a function that does a power n of any input
+
+(fn [n]
+#(int (Math/pow % n))
+)
