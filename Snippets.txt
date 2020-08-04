@@ -111,3 +111,21 @@ s
 (fn [n]
 #(int (Math/pow % n))
 )
+
+// return a list of Compounded values of a function taking an initial value
+// eg: (take 5 Foo(fun, 1)) = [1 f(1) f(f(1)) f(f(f(1))) f(f(f(f(1))))]
+
+(fn foo[fun x]
+ (lazy-seq (cons x (foo fun (fun x)))
+)
+)
+
+// Given a less than function, arg1 and arg2, Write a function that compares the two args and returns :gt if arg1>arg2, :eq arg1==arg2 and :lt otherwise
+// Here the less than function can be any less than comparison function eg: (< (count arg1) (count arg2)) if arg1, arg2 are strings etc...
+
+#(if (%1 %2 %3)
+:lt
+(if (%1 %3 %2)
+:gt
+:eq)
+)
