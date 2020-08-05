@@ -129,3 +129,24 @@ s
 :gt
 :eq)
 )
+
+
+// Get Cartesian product of two sets
+
+#(set 
+   (for [i %1 j %2 :let [se #{}]] 
+     [i j] 
+     ))
+     
+     
+// Function to split a number's digits into a list
+// Eg: 12345 => [1 2 3 4 5]
+
+(fn foo [a]
+  (let [x (int (/ a 10))]
+  (if (not= x 0)
+  (conj (foo x) (mod a 10) )
+  [a]
+  )
+  )
+  )
