@@ -150,3 +150,15 @@ s
   )
   )
   )
+
+
+// Convert prefix  notation of Clojure into standard (infix) notation
+// eg:  Clojure does (* 2 3) => 6
+// we need: (func 2 * 3) => 6
+
+(defn bar [& y] ((fn foo [x]
+(if (> (count x) 1)
+((second x)  (foo (drop 2 x)) (first x))
+(first x)
+)
+) (reverse y)))
