@@ -162,3 +162,16 @@ s
 (first x)
 )
 ) (reverse y)))
+
+
+// Given a row, get a list of elements in a pascal triangle
+
+(fn triangle [n]
+  (let [fact (fn foo [n]
+               (if (<= n 1)
+                 1
+                 (* n (foo (dec n)))))
+        nCr (fn [n r]
+              (/ (fact n) (* (fact r) (fact (- n r)))))]
+    (vec (for [i (range n)]
+           (nCr (- n 1) i)))))
