@@ -175,3 +175,15 @@ s
               (/ (fact n) (* (fact r) (fact (- n r)))))]
     (vec (for [i (range n)]
            (nCr (- n 1) i)))))
+
+
+// function that takes a list and gives a count of all elements where the element is greater than the squares of its components (10 < 1^2 + 0^2) but (15 > 1^2 + 5^2)
+
+(fn poo [n]
+  (let [loo (fn zoo [n]
+              (let [x (int (/ n 10))]
+                (if (> n 0)
+                  (+ (int (Math/pow (mod n 10) 2)) (zoo x))
+                  n)))]
+
+    (count (filter #(< % (loo %)) n))))
